@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-
+import socket
 from flask import Flask, render_template, request
 
 application = Flask(__name__)
 
 @application.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", host_name=socket.gethostname())
 
 @application.route("/page1")
 def page1():
