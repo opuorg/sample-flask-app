@@ -1,6 +1,7 @@
-FROM python:3.11.13-alpine3.22
+FROM python:3.7.17-slim-bullseye
 
-RUN apk update
+RUN apt update
+RUN apt install -y gcc
 
 COPY . /
 
