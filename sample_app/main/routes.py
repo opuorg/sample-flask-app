@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, current_app
 import socket
 import mysql.connector
 from mysql.connector import Error
@@ -18,11 +18,11 @@ def about():
 @main.route('/database')
 def version():
     config = {
-        'user': 'root',
-        'password': 'secret',
-        'host': '127.0.0.1',
+        'user': current_app.config['DATABASE_USER'],
+        'password': current_app.config['DATABASE_PASSWORD'],
+        'host': current_app.config['DATABASE_HOST'],
         'port': '3306',
-        'database': 'mySchema'
+        'database': current_app.config['DATABASE_NAME'],
     }
     try:
         connection = mysql.connector.connect(**config)
