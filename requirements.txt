@@ -2,3 +2,5 @@ flask
 uwsgi
 gunicorn
 sockets
+PyMysql
+mysql-connector-python
