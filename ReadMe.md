@@ -4,6 +4,7 @@ python3.9 -m venv sampleflaskappenv
 
 
 ```
-export FLASK_APP=main.py
-flask run --host=0.0.0.0 --port=5001
+pip install -r requirements.txt
+export FLASK_DEBUG=1
+flask --app sample_app run
 ```

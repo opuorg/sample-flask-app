@@ -1,27 +1,21 @@
-#!/usr/bin/env python3
+from flask import render_template, Blueprint
 import socket
-from flask import Flask, render_template, request
-from typing import List, Dict
-from flask import Flask, render_template, request, session, redirect, url_for
 import mysql.connector
 from mysql.connector import Error
-import json
 
-application = Flask(__name__)
+main = Blueprint('main', __name__)
 
-@application.route("/")
+
+@main.route("/")
+@main.route("/home")
 def home():
     return render_template("home.html", host_name=socket.gethostname())
 
-@application.route("/page1")
-def page1():
-    return render_template("page1.html")
+@main.route("/about")
+def about():
+    return render_template('about.html', title='About')
 
-@application.route('/hello/<name>')
-def hello_name(name):
-    return 'Hello %s!' % name
-
-@application.route('/database')
+@main.route('/database')
 def version():
     config = {
         'user': 'root',
@@ -39,5 +33,3 @@ def version():
         return "Connected to MySQL Server {}".format(db_Info)+"<br>"+"If you want to insert users to MySQL, access with /insert"
     except:
         return "Oops!! Unable to Connect to MySQL DB"
-if __name__ == "__main__":
-    application.run(host='0.0.0.0')

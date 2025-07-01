@@ -1,11 +1,11 @@
-FROM python:3.7-stretch
+FROM python:3.11.13-alpine3.22
 
-COPY requirements.txt /
+RUN apk update
+
+COPY . /
 
 RUN pip install -r requirements.txt
 
-COPY /src /
-
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "wsgi"]
+CMD ["gunicorn", "-w", "3", "--bind", "0.0.0.0:8000", "run:app"]
