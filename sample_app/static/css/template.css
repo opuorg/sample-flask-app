@@ -1,0 +1,23 @@
+.main {
+    font-family: "Courier New";
+    color: #9C1A1C;
+    margin: 10%;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer {
+    padding:  50px;
+}
+
+.main-body {
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: black;
+}
