@@ -11,12 +11,17 @@
     <header>
         <div class="container">
             <h1 class="logo">First Web App</h1>
-            <h4>Server host: {{ host_name }}</h4>
         </div>
     </header>
 
     <div class="main-body">
-        <h1>Body section</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <p class="card-text">Choose a file to upload it to AWS S3</p>
+                <input type="file" name="file" value="file">
+                <hr>
+        <input type="submit" name="upload" value="Upload" class="btn btn-success">
+        </form>
+        {{msg}}
     </div>
 
     <footer>

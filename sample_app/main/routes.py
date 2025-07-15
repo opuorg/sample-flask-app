@@ -11,6 +11,10 @@ main = Blueprint('main', __name__)
 def home():
     return render_template("home.html", host_name=socket.gethostname())
 
+@main.route("/upload")
+def upload():
+    return render_template("upload.html", host_name=socket.gethostname())
+
 @main.route("/about")
 def about():
     return render_template('about.html', title='About')
