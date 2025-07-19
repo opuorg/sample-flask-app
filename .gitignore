@@ -2,3 +2,5 @@
 .vscode/*
 **__pycache__**
 **.sfavenv**
+.venv
+.DS_Store

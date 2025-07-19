@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from email.mime import application
 from sample_app import  create_app
 from logging.config import dictConfig
 
@@ -18,7 +19,7 @@ dictConfig({
     }
 })
 
-app = create_app()
+application = create_app()
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
